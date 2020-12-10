@@ -1,6 +1,9 @@
 from flask import Blueprint
 from autoload import load_submodules
 import app.controllers
+import urllib
+import inspect
+import time
 
 _router = Blueprint('router', __name__)
 _controllers = load_submodules(app.controllers)
@@ -21,3 +24,29 @@ def route_get(url, func):
 def route_post(url, func):
     route(["POST"], url, func)
 
+def _print_routes(_app):
+    time.sleep(0.5)
+    fmt = "{:<10} {:40s} {:30s} {:50s}"
+    print()
+    print("=== LOADED ROUTES ====")
+    print(fmt.format("priorty","route","methods","location"))
+    locations = {}
+    for name, func in _app.view_functions.items():
+        # print(name, func)
+        path = inspect.getfile(func)
+        line = inspect.getsourcelines(func)[1]
+        locations[name] = path + ":" + str(line)
+
+    arr = []
+    for i in range(len(_app.url_map._rules)):
+        rule = _app.url_map._rules[i]
+        loc = locations.get(rule.endpoint)
+        methods = ",".join(rule.methods)
+        line = urllib.parse.unquote(fmt.format(i, str(rule), methods, loc))
+        arr.append(line)
+    
+    for line in arr:
+        print(line)
+
+    print()
+    print()
