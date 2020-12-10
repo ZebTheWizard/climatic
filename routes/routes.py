@@ -1,8 +1,8 @@
 from . import route_get, route_post, route
-# from app.controllers import TestController
+from app.controllers import TestController
 
 
-# route_get('/', TestController.hello_world)
+route_get('/', TestController.hello_world)
 
 route_get('/test', "TestController@hello_world")
 
