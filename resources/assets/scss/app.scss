@@ -1,0 +1,71 @@
+$blue: #42a2dc;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #84919a;
+$gray-light: #f4f5f6;
+$gray-dark: #5c6870;
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray,
+  "gray-dark":  $gray-dark
+);
+
+
+$theme-colors: (
+  "primary":    $blue,
+  "secondary":  $gray,
+  "success":    $green,
+  "info":       $cyan,
+  "warning":    $yellow,
+  "danger":     $red,
+  "light":      $gray-light,
+  "dark":       $gray-dark
+);
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    background-color: #edf0f2;
+    text-align: left;
+    color: #49545a;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(55,63,67,.04);
+}
+
+.card {
+    background-color: #f6f8f9;
+    background-clip: border-box;
+    min-width: 0;
+    border: 0 solid rgba(55,63,67, .125);
+    border-radius: 0.3rem;
+    box-shadow: 0 2px 3px rgba(55,63,67,.16);
+}
+
+.card-header {
+    background-color: $white;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "climatic",
+  "version": "1.0.0",
+  "author": "zebulon.e.burroughs.temp@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build resources/assets/js/app.js --dist-dir public/js/ && parcel build resources/assets/scss/app.scss --dist-dir public/css/"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.5.4",
+    "jquery": "^3.5.1",
+    "parcel": "^2.0.0-beta.1",
+    "popper.js": "^1.16.1",
+    "sass": "^1.30.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.12.10",
+    "bootstrap": "^5.0.0-beta1"
+  }
+}
