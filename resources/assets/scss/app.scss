@@ -54,7 +54,6 @@ body {
 
 .navbar {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(55,63,67,.04);
 }
 
 .card {
@@ -63,9 +62,86 @@ body {
     min-width: 0;
     border: 0 solid rgba(55,63,67, .125);
     border-radius: 0.3rem;
-    box-shadow: 0 2px 3px rgba(55,63,67,.16);
 }
 
 .card-header {
     background-color: $white;
+}
+
+// .has-theme * {
+//   position: static;
+// }
+
+
+.theme-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transition: all 0.4s;
+  @media (prefers-color-scheme: dark) {
+    background: white;
+  }
+  @media (prefers-color-scheme: light) {
+    background: #202b39;
+  }
+}
+
+.shadow {
+  box-shadow: none !important;
+}
+
+.shadow:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.has-theme .shadow:after{
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1);
+  }
+}
+
+.has-theme.dark .shadow:after {
+  filter: invert(1) !important;
+}
+
+
+
+.theme-ignore {
+  isolation: isolate;
+  z-index: 1000;
+  position: relative;
+}
+
+
+.theme-overlay.light {
+  background: black;
+}
+
+.theme-overlay.dark {
+  background: white;
+}
+
+.nav-item-grow {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

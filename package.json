@@ -12,12 +12,19 @@
     "@vue/component-compiler-utils": "^3.2.0",
     "jquery": "^3.5.1",
     "sass": "^1.30.0",
+    "stylus": "^0.54.8",
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bootstrap": "^5.0.0-beta1",
+    "chart.js": "^2.9.4",
+    "moment": "^2.29.1",
     "parcel": "^1.12.4",
     "vue": "^2.6.12",
+    "vue-csv-import": "^3.3.5",
+    "vue-slider-component": "^3.2.11",
+    "vue2-datepicker": "^3.8.2",
     "watch": "^1.0.2"
   },
   "alias": {
