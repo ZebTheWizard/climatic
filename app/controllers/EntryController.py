@@ -25,9 +25,12 @@ def create_entry(created_at, humidity, celsius):
 def add():
     entry = Entry()
     now = datetime.datetime.now()
-    mstr = request.json.get('datetime', now.strftime("%Y-%m-%d %H:%M:%S"))
-    created_at = datetime.datetime.strptime(datestr, "%Y-%m-%d %H:%M:%S")
-    entry = create_entry(create_entry, request.json.get('humidity', 30), request.json.get('celsius', 14))
+    created_at = request.json.get('datetime')
+    if created_at:
+        created_at = parser.parse(created_at)
+    else:
+        created_at = now
+    entry = create_entry(created_at, request.json.get('humidity', 30), request.json.get('celsius', 14))
 
     return entry.insert()
 
