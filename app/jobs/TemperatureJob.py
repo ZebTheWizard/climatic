@@ -2,7 +2,6 @@ import time
 import threading
 import app.providers.TemperatureServiceProvider as Service
 
-last = 0
 stop_threads = False
 
 
@@ -19,14 +18,9 @@ def thread_func():
 
 thread = threading.Thread(target = thread_func)
 
-def job():
-    Service.insert()
-
 def make(schedule):
-    global last
-    schedule.every().minutes.do(job)
+    schedule.every().minutes.do(Service.insert)
     thread.start()
-
 
 def destroy():
     global stop_threads

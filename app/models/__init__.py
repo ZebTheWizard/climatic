@@ -40,7 +40,6 @@ class model():
 
     def get(self, select="*"):
         query = "SELECT %s FROM %s %s" % (select, self.table, self._query)
-        print(query)
         code = 500
         msg = "success"
         with sqlite3.connect("database.db") as con:

@@ -25,11 +25,10 @@ app.register_blueprint(_router)
 
 @app.route('/<path:path>')
 def _serve_public_folder(path):
-    print(path)
     return send_from_directory(static_folder, path)
 
 
-if os.environ["FLASK_ENV"] == "development":
+if os.environ.get("FLASK_ENV", "production") == "development":
     _print_routes(app)
     # run_migrations_down()
     
