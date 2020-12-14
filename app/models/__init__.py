@@ -1,4 +1,3 @@
-import numpy as np
 import sqlite3
 from autoload import load_submodules
 import app.migrations
