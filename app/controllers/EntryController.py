@@ -4,24 +4,6 @@ import datetime
 from dateutil import parser
 
 
-def create_entry(created_at, humidity, celsius):
-    entry = Entry()
-
-    created_hour = created_at.strftime("%Y-%m-%d %H:00:00")
-    created_day = created_at.strftime("%Y-%m-%d 00:00:00")
-    created_month = created_at.strftime("%Y-%m-01 00:00:00")
-    created_year = created_at.strftime("%Y-01-01 00:00:00")
-
-    entry.created_at = created_at
-    entry.create_hour = created_hour
-    entry.create_day = created_day
-    entry.create_month = created_month
-    entry.create_year = created_year
-    entry.humidity = float(humidity)
-    entry.celsius = float(celsius)
-
-    return entry
-
 def add():
     entry = Entry()
     now = datetime.datetime.now()
@@ -30,7 +12,7 @@ def add():
         created_at = parser.parse(created_at)
     else:
         created_at = now
-    entry = create_entry(created_at, request.json.get('humidity', 30), request.json.get('celsius', 14))
+    entry = Entry.create_entry(created_at, request.json.get('humidity', 30), request.json.get('celsius', 14))
 
     return entry.insert()
 
@@ -41,7 +23,7 @@ def upload():
         created_at = parser.parse(row.get('created_at', now))
         humidity = row.get('humidity', 30)
         celsius = row.get('celsius', 14)
-        entry = create_entry(created_at, humidity, celsius)
+        entry = Entry.create_entry(created_at, humidity, celsius)
         entry.insert()
     return "success"
 
