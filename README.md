@@ -2,6 +2,8 @@
 
 This branch is the final project. The code is written for Raspberry Pi running Raspbian. 
 
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/main.jpg" alt="main"/></center>
+
 ### Assumptions
 1. Code is running on Raspberry Pi
 1. Raspberry Pi has Raspbian OS
@@ -29,11 +31,34 @@ This branch is the final project. The code is written for Raspberry Pi running R
 1. When the DH11 daemon runs it inserts the last temperature/humidity into a SQLITE database. It runs every 30 seconds.
 1. When a user visits the web page, temperature data is grouped and averaged by timestamps.
 
-### Features
-* Automatically collects temperature/humidity data every 30 seconds
-* Displays data in a fancy chart
-* Dark/Light Mode.
-* Allows manual entries and entry modification
-* Allows data to be imported from a CSV file.
-* Runs on port 5000
-* No NGINX or Apache required
+# Features
+Here is a quick list of features. 
+
+#### Automatically collects temperature/humidity data every 30 seconds
+The server is constantly collecting temperatures. When the server is ready for a new temperature it stores it in the database automatically.
+
+#### Displays data in a fancy chart
+See all the collected data by using a fancy chart. If you want to live in the past then you can select more date ranges.
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/weather.png" alt="main"/></center>
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/filter.png" alt="main"/></center>
+
+#### Dark/Light Mode.
+We hacked together a dark and light mode.
+
+#### Allows manual entries
+If you want to add a few dates to try things out this feature is for you.
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/entry.png" alt="main"/></center>
+
+#### Allows data to be imported from a CSV file.
+If you already have a collection of temperatures, then you can import them for fancy charting.
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/upload.png" alt="main"/></center>
+
+#### Delete data too
+Have bad data? Delete them and try again.
+<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/entries.png" alt="main"/></center>
+
+#### Runs on port 5000
+Port 5000 so you don't need admin privledges. 
+
+#### No NGINX or Apache required
+The connections are forwarded straight to the background processes. If you want to use in production environment you should use NGINX or Apache.
