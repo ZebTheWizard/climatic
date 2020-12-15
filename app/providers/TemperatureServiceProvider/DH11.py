@@ -1,6 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
+def block_while(channel, mode):
+    while GPIO.input(channel) == mode:
+        continue
+
 def _setup(channel):
     GPIO.setmode(GPIO.BOARD)
     time.sleep(2)
