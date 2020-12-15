@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     prettyDate(date) {
-      return moment(date).format("MMM DD, YYYY hh:mm:SS a");
+      return moment(date).format("MMM DD, YYYY hh:mm:ss a");
     },
     getEntries() {
       axios.get("/entry/list").then((res) => {

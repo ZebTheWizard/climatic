@@ -127,8 +127,8 @@ export default {
             type: "line",
             data: {
               labels: res.data.times.map((x) => {
-                var utc = moment.utc(x).toDate();
-                return moment(utc).local().format(this.currentChart.format);
+                // var utc = moment.utc(x).toDate();
+                return moment(x).format(this.currentChart.format);
               }),
               datasets: [
                 {

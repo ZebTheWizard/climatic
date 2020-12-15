@@ -17,7 +17,7 @@ def shape_entries(entries, date_column):
 
 def fetch_entries(cutoff, date_column):
     entry = Entry()
-    entries = entry.query("where created_at >= ? GROUP BY %s ORDER BY created_at DESC" % date_column, [cutoff]) \
+    entries = entry.query("where created_at >= ? GROUP BY %s ORDER BY created_at ASC" % date_column, [cutoff]) \
         .get("count(*) as count, sum(humidity) as humidity, sum(celsius) as celsius, %s" % date_column)
 
     return jsonify(shape_entries(entries, date_column)), entries[1]
@@ -49,6 +49,6 @@ def last365days():
 def all():
     date_column = "create_year"
     entry = Entry()
-    entries = entry.query("GROUP BY %s ORDER BY created_at DESC" % date_column) \
+    entries = entry.query("GROUP BY %s ORDER BY created_at ASC" % date_column) \
         .get("count(*) as count, sum(humidity) as humidity, sum(celsius) as celsius, %s" % date_column)
     return  jsonify(shape_entries(entries, date_column)), entries[1]
