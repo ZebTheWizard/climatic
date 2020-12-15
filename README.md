@@ -1,15 +1,4 @@
-# Climatic Group Project
-
-This branch is the final project. The code is written for Raspberry Pi running Raspbian. 
-
-<center><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/main.jpg" alt="main"/></center>
-
-### Assumptions
-1. Code is running on Raspberry Pi
-1. Raspberry Pi has Raspbian OS
-1. Raspberry Pi is using DH11 sensor attached to pin 7
-1. Code is running with Python 3.7 and venv/pip
-1. Code is not for production
+<p align="center"><img src="https://raw.githubusercontent.com/ghzb/climatic2/master/public/img/cover.jpg" alt="main" align="center"/></p>
 
 # How to Install/Run
 1. Ensure all assumptions are met.
@@ -25,11 +14,12 @@ This branch is the final project. The code is written for Raspberry Pi running R
 1. Visit raspberry pi webserver in the browser **not loopback** `http://192.168.1.6:5000`
 1. Look at charts or use manual entry forms.
 
-### How does it work 
-1. The executable is a custom scripts that runs "jobs". Each job spawn seperate threads or execute code in intervals like a traditional CRON job.
-1. This code base spawns a job for the Flask web server. And the DH11 sensor daemon.
-1. When the DH11 daemon runs it inserts the last temperature/humidity into a SQLITE database. It runs every 30 seconds.
-1. When a user visits the web page, temperature data is grouped and averaged by timestamps.
+### Assumptions
+1. Code is running on Raspberry Pi
+1. Raspberry Pi has Raspbian OS
+1. Raspberry Pi is using DH11 sensor attached to pin 7
+1. Code is running with Python 3.7 and venv/pip
+1. Code is not for production
 
 # Features
 Here is a quick list of features. 
@@ -62,3 +52,15 @@ Port 5000 so you don't need admin privledges.
 
 #### No NGINX or Apache required
 The connections are forwarded straight to the background processes. If you want to use in production environment you should use NGINX or Apache.
+
+
+# About
+
+### Credits
+This project was created by Bryan and Zeb during their ITD-3223 IoT course. This project would not be possible without open source software.
+
+### How does it work 
+1. The executable is a custom scripts that runs "jobs". Each job spawn seperate threads or execute code in intervals like a traditional CRON job.
+1. This code base spawns a job for the Flask web server. And the DH11 sensor daemon.
+1. When the DH11 daemon runs it inserts the last temperature/humidity into a SQLITE database. It runs every 30 seconds.
+1. When a user visits the web page, temperature data is grouped and averaged by timestamps.
