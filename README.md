@@ -9,7 +9,7 @@ This branch is the final project. The code is written for Raspberry Pi running R
 1. Code is running with Python 3.7 and venv/pip
 1. Code is not for production
 
-### How to Install/Run
+# How to Install/Run
 1. Ensure all assumptions are met.
 1. Clone the repo to raspberry pi `git clone https://github.com/ghzb/climatic2`
 1. Change directories `cd climatic2`
