@@ -24,3 +24,7 @@ def run():
     data = [random.randint(14,26), random.randint(20,36)]
     on_results(*data)
     print(*data)
+
+if __name__ == "__main__":
+    while True:
+        run()

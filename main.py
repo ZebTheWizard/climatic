@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import app.jobs
 import schedule
 import time
