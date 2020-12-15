@@ -20,6 +20,7 @@ def on_results(celsius, humidity):
     
 def run():
     get_weather(on_results)
+    return last
 
 if __name__ == "__main__":
     get_weather(on_results, True)

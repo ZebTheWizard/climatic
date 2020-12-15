@@ -14,7 +14,7 @@ def thread_func():
     while True:
         global stop_threads
         
-        Service.run()
+        print(Service.run())
         time.sleep(0.5)
         
         if stop_threads: 
@@ -24,6 +24,7 @@ thread = threading.Thread(target = thread_func)
 
 def job():
     Service.insert()
+    # raise "hello"
 
 def make(schedule):
     schedule.every(30).seconds.do(job)
