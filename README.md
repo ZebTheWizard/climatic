@@ -32,6 +32,7 @@ This branch is the final project. The code is written for Raspberry Pi running R
 ### Features
 * Automatically collects temperature/humidity data every 30 seconds
 * Displays data in a fancy chart
+* Dark/Light Mode.
 * Allows manual entries and entry modification
 * Allows data to be imported from a CSV file.
 * Runs on port 5000
