@@ -80,12 +80,14 @@ def get_weather(cb, watch=False):
 
     return Celsius, humidity%
     """   
-    while watch:
+    while True:
         results = _collect()
         if results:
             cb(*results)
         if watch:
             time.sleep(watch)
+        else:
+            break
         
         
 
