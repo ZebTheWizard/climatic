@@ -1,5 +1,6 @@
 <template>
   <bootstrap-card savable="" title="Upload from CSV" @save="save">
+    <p>Test upload with <a :href="'/example.csv'" download>Example.csv</a></p>
     <vue-csv-import
       v-if="visible"
       ref="csv"
@@ -18,13 +19,13 @@
         <!-- <button @click.prevent="load">load!</button> -->
       </template>
     </vue-csv-import>
-    <button
+    <!-- <button
       class="btn text-white float-end btn-sm theme-ignore btn-success"
       @click="load"
-      v-if="!loaded"
+      v-show="!loaded && hasFile"
     >
       <span class="mx-2">Load</span>
-    </button>
+    </button> -->
     <div v-if="loaded">
       <button
         class="btn text-white float-end btn-sm theme-ignore btn-primary"
@@ -52,10 +53,21 @@ export default {
   },
   data() {
     return {
-      parseCsv: {},
+      parseCsv: null,
       loaded: false,
       visible: true,
+      hasFile: false,
     };
+  },
+  mounted() {
+    var input = this.$refs.csv.$refs.csv;
+    input.addEventListener("change", (e) => {
+      console.log("file changed");
+      this.hasFile = input.files.length > 0;
+      try {
+        this.load();
+      } catch (err) {}
+    });
   },
   methods: {
     load() {
