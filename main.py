@@ -18,7 +18,7 @@ try :
         schedule.run_pending()
         time.sleep(1)
 except KeyboardInterrupt:
-    print("quitting schedules...")
+    print("quitting jobs...")
     for name in jobs:
         job = jobs.get(name)
         if hasattr(job, 'destroy'):

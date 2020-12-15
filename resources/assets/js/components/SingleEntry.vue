@@ -70,7 +70,7 @@ export default {
       this.error = false;
       axios
         .post("/entry/add", {
-          datetime: moment(this.datetime).format("YYYY-MM-DD HH:mm:SS"),
+          datetime: moment(this.datetime).format("YYYY-MM-DD HH:mm:ss"),
           humidity: this.humidity,
           celsius: this.celsius,
         })
