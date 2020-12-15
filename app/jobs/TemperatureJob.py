@@ -15,7 +15,7 @@ def thread_func():
     while True:
         global stop_threads
         
-        print(Service.run())
+        Service.run()
         time.sleep(0.5)
         
         if stop_threads: 
