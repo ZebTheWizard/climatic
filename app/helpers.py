@@ -1,6 +1,7 @@
 import os
 from werkzeug.utils import secure_filename
 from flask import jsonify
+from datetime import datetime, timedelta
 
 def has_allowed_ext(filename, extensions):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in extensions
@@ -30,3 +31,12 @@ def save_file(*args, **kwargs):
 
 def error_json(msg):
     return jsonify({"error": msg}), 500
+
+
+def ceil_date(date, **kwargs):
+    seconds = timedelta(**kwargs).total_seconds()
+    return datetime.fromtimestamp(date.timestamp() + seconds - date.timestamp() % seconds)
+
+def floor_date(date, **kwargs):
+    seconds = timedelta(**kwargs).total_seconds()
+    return datetime.fromtimestamp(date.timestamp() - date.timestamp() % seconds)

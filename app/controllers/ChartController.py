@@ -23,6 +23,10 @@ def fetch_entries(cutoff, date_column):
     return jsonify(shape_entries(entries, date_column)), entries[1]
 
 def default():
+    cutoff = datetime.now() - timedelta(hours=1)
+    return fetch_entries(cutoff, 'create_5minute')
+
+def last6hours():
     cutoff = datetime.now() - timedelta(hours=6)
     return fetch_entries(cutoff, 'create_hour')
 

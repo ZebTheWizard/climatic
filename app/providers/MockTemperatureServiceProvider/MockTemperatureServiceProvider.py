@@ -13,7 +13,7 @@ def insert():
         now = datetime.datetime.now()
         entry = Entry.create_entry(now, humidity, celsius)
         res = entry.insert()
-        print("inserted")
+        print("inserted", res)
         return res
 
 def on_results(celsius, humidity):

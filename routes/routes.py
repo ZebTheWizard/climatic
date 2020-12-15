@@ -10,6 +10,7 @@ route_post('/entry/upload', "EntryController@upload")
 route_post('/entry/remove', "EntryController@remove")
 
 route_get('/entry/list/default', "ChartController@default")
+route_get('/entry/list/last6hours', "ChartController@last6hours")
 route_get('/entry/list/last24hours', "ChartController@last24hours")
 route_get('/entry/list/last7days', "ChartController@last7days")
 route_get('/entry/list/last30days', "ChartController@last30days")

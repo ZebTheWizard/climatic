@@ -94,7 +94,7 @@ export default {
   data() {
     var lastChartRaw = window.localStorage.getItem("chart");
     var lastChart = lastChartRaw ? JSON.parse(lastChartRaw) : null;
-    var defaultChart = chart("default", "Last 6 Hours", "h:mm a");
+    var defaultChart = chart("default", "Last Hour", "h:mm a");
     return {
       chart: null,
       defaultChart,
@@ -102,6 +102,7 @@ export default {
       currentChartSelection: "",
       availableCharts: [
         defaultChart,
+        chart("default", "Last 6 Hours", "h:mm a"),
         chart("last24hours", "Last 24 Hours", "h a"),
         chart("last7days", "Last 7 days", "MMM DD"),
         chart("last30days", "Last 30 days", "MMM DD"),
