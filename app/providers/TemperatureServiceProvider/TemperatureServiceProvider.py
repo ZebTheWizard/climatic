@@ -1,5 +1,4 @@
-# from app.providers..DH11 import get_weather
-from app.providers.TemperatureServiceProvider.TemperatureServiceProvider.DH11 import get_weather
+from .DH11 import get_weather
 from app.models.Entry import Entry
 import datetime
 

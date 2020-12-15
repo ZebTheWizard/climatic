@@ -3,7 +3,8 @@ import threading
 
 try:
     import app.providers.TemperatureServiceProvider as Service
-except ModuleNotFoundError:
+except ModuleNotFoundError as err:
+    print(err)
     import app.providers.MockTemperatureServiceProvider as Service
 
 stop_threads = False
