@@ -5,13 +5,15 @@ import datetime
 last = None
 
 def insert():
+    print("trying to insert")
     if last:
         [celsius, humidity] = last
         entry = Entry()
         now = datetime.datetime.now()
         entry = Entry.create_entry(now, humidity, celsius)
-
-        return entry.insert()
+        res = entry.insert()
+        print("inserted")
+        return res
 
 def on_results(celsius, humidity):
     global last
