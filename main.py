@@ -10,10 +10,8 @@ jobs = load_submodules(app.jobs)
 
 for name in jobs:
     job = jobs.get(name)
-    try:
+    if hasattr(job, 'make'):
         job.make(schedule)
-    except Exception as err:
-        print(err)
 
 try :
     while True:
@@ -23,7 +21,5 @@ except KeyboardInterrupt:
     print("quitting schedules...")
     for name in jobs:
         job = jobs.get(name)
-        try:
+        if hasattr(job, 'destroy'):
             job.destroy()
-        except:
-            pass

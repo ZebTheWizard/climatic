@@ -1,10 +1,12 @@
-from .DH11 import get_weather
+import time
+import random
 from app.models.Entry import Entry
 import datetime
 
 last = None
 
 def insert():
+    print("trying insert")
     if last:
         [celsius, humidity] = last
         entry = Entry()
@@ -18,4 +20,7 @@ def on_results(celsius, humidity):
     last = (celsius, humidity)
     
 def run():
-    get_weather(on_results)
+    time.sleep(random.randint(2, 5))
+    data = [random.randint(14,26), random.randint(20,36)]
+    on_results(*data)
+    print(*data)

@@ -1,6 +1,10 @@
 import time
 import threading
-import app.providers.TemperatureServiceProvider as Service
+
+try:
+    import app.providers.TemperatureServiceProvider as Service
+except ModuleNotFoundError:
+    import app.providers.MockTemperatureServiceProvider as Service
 
 stop_threads = False
 
@@ -18,8 +22,11 @@ def thread_func():
 
 thread = threading.Thread(target = thread_func)
 
+def job():
+    Service.insert()
+
 def make(schedule):
-    schedule.every().minutes.do(Service.insert)
+    schedule.every(30).seconds.do(job)
     thread.start()
 
 def destroy():
