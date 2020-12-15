@@ -16,7 +16,7 @@ This branch is the final project. The code is written for Raspberry Pi running R
 1. Create a virtual environment `python3 -m venv venv`
 1. Activate venv `source venv/bin/activate`
 1. Install pip packages inside venv `pip install -r requirements.txt`
-1. Make script executable `chmod +X main.py` or `chmod 700 main.py`
+1. Make script executable `chmod +x main.py` or `chmod 700 main.py`
 1. Run everything in the background `./main.py &`
 1. Wait for about 20 minutes to let data populate
 1. Note the ip of the raspberry pi `hostname -I`
